@@ -1,0 +1,593 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww17760\viewh17960\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html lang="en">\
+<head>\
+    <meta charset="UTF-8">\
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
+    <title>Soulful Selling Cards</title>\
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">\
+    <style>\
+        :root \{\
+            --deep-blue: #1a1a2e;\
+            --dark-blue: #0d0d1a;\
+            --gold: #f39c12;\
+            --gold-dark: #e67e22;\
+            --ivory: #e6d5b8;\
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);\
+        \}\
+        \
+        * \{\
+            margin: 0;\
+            padding: 0;\
+            box-sizing: border-box;\
+        \}\
+        \
+        body \{\
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--deep-blue) 100%);\
+            color: var(--ivory);\
+            font-family: 'Montserrat', sans-serif;\
+            min-height: 100vh;\
+            display: flex;\
+            flex-direction: column;\
+            align-items: center;\
+            padding: 20px;\
+            text-align: center;\
+            line-height: 1.6;\
+            overflow-x: hidden;\
+        \}\
+        \
+        header \{\
+            max-width: 800px;\
+            margin: 0 auto 15px;\
+            padding: 0 20px;\
+        \}\
+        \
+        .logo \{\
+            font-family: 'Playfair Display', serif;\
+            font-size: 2.6rem;\
+            font-weight: 700;\
+            color: var(--gold);\
+            margin-bottom: 5px;\
+            text-shadow: 0 0 15px rgba(243, 156, 18, 0.3);\
+            letter-spacing: 1px;\
+        \}\
+        \
+        .tagline \{\
+            font-size: 1.1rem;\
+            margin-bottom: 10px;\
+            color: rgba(230, 213, 184, 0.9);\
+            max-width: 600px;\
+            margin: 0 auto;\
+            text-transform: uppercase;\
+            letter-spacing: 3px;\
+        \}\
+        \
+        .divider \{\
+            height: 2px;\
+            width: 80px;\
+            background: var(--gold);\
+            margin: 12px auto;\
+            border-radius: 2px;\
+        \}\
+        \
+        .app-container \{\
+            background: rgba(13, 13, 26, 0.7);\
+            border-radius: 15px;\
+            padding: 20px;\
+            box-shadow: var(--shadow);\
+            max-width: 800px;\
+            width: 100%;\
+            margin: 0 auto 20px;\
+            border: 1px solid rgba(243, 156, 18, 0.2);\
+            backdrop-filter: blur(5px);\
+            position: relative;\
+            overflow: hidden;\
+            flex-grow: 1;\
+            display: flex;\
+            flex-direction: column;\
+        \}\
+        \
+        .card-area \{\
+            position: relative;\
+            min-height: 400px;\
+            display: flex;\
+            align-items: center;\
+            justify-content: center;\
+            margin: 15px 0;\
+            flex-grow: 1;\
+        \}\
+        \
+        .card \{\
+            width: 100%;\
+            max-width: 350px;\
+            height: 500px;\
+            border-radius: 15px;\
+            box-shadow: var(--shadow);\
+            display: flex;\
+            align-items: center;\
+            justify-content: center;\
+            position: relative;\
+            overflow: hidden;\
+            border: 2px solid rgba(243, 156, 18, 0.3);\
+            transition: transform 0.5s ease, box-shadow 0.3s ease;\
+            background-size: cover;\
+            background-position: center;\
+        \}\
+        \
+        .card-back \{\
+            background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');\
+            position: relative;\
+        \}\
+        \
+        .card-image \{\
+            max-width: 100%;\
+            max-height: 100%;\
+            object-fit: contain;\
+            padding: 20px;\
+            border-radius: 12px;\
+        \}\
+        \
+        .controls \{\
+            display: flex;\
+            flex-direction: column;\
+            align-items: center;\
+            gap: 10px;\
+            margin-top: 20px;\
+        \}\
+        \
+        .draw-btn \{\
+            background: var(--gold);\
+            color: var(--dark-blue);\
+            border: none;\
+            padding: 18px 45px;\
+            font-size: 1.3rem;\
+            font-weight: 700;\
+            border-radius: 50px;\
+            cursor: pointer;\
+            transition: all 0.3s ease;\
+            box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);\
+            letter-spacing: 1px;\
+            text-transform: uppercase;\
+            font-family: 'Playfair Display', serif;\
+            position: relative;\
+            overflow: hidden;\
+            margin-top: 10px;\
+            border: 2px solid rgba(230, 213, 184, 0.5);\
+        \}\
+        \
+        .draw-btn:hover \{\
+            background: var(--gold-dark);\
+            transform: translateY(-3px);\
+            box-shadow: 0 8px 20px rgba(243, 156, 18, 0.6);\
+        \}\
+        \
+        .draw-btn:active \{\
+            transform: translateY(1px);\
+        \}\
+        \
+        .draw-btn::after \{\
+            content: "";\
+            position: absolute;\
+            top: 0;\
+            left: 0;\
+            width: 100%;\
+            height: 100%;\
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.2), transparent);\
+            transform: translateX(-100%);\
+        \}\
+        \
+        .draw-btn:hover::after \{\
+            animation: shimmer 1.5s infinite;\
+        \}\
+        \
+        .instructions \{\
+            background: rgba(26, 26, 46, 0.5);\
+            border-radius: 12px;\
+            padding: 20px;\
+            margin-top: 20px;\
+            border-left: 3px solid var(--gold);\
+        \}\
+        \
+        .instructions h3 \{\
+            font-family: 'Playfair Display', serif;\
+            color: var(--gold);\
+            margin-bottom: 12px;\
+            font-size: 1.4rem;\
+            letter-spacing: 1px;\
+        \}\
+        \
+        .steps \{\
+            text-align: left;\
+            max-width: 600px;\
+            margin: 0 auto;\
+            list-style: none;\
+            font-size: 0.95rem;\
+        \}\
+        \
+        .steps li \{\
+            margin-bottom: 10px;\
+            line-height: 1.6;\
+            padding-left: 25px;\
+            position: relative;\
+        \}\
+        \
+        .steps li::before \{\
+            content: "\'95";\
+            color: var(--gold);\
+            font-size: 1.3rem;\
+            position: absolute;\
+            left: 0;\
+            top: -3px;\
+        \}\
+        \
+        footer \{\
+            margin-top: auto;\
+            padding: 15px;\
+            font-size: 0.9rem;\
+            color: rgba(230, 213, 184, 0.7);\
+            max-width: 800px;\
+            text-align: center;\
+        \}\
+        \
+        /* Animations */\
+        @keyframes fadeIn \{\
+            from \{ opacity: 0; transform: scale(0.95); \}\
+            to \{ opacity: 1; transform: scale(1); \}\
+        \}\
+        \
+        @keyframes shuffle \{\
+            0% \{ transform: rotate(-5deg); \}\
+            50% \{ transform: rotate(5deg) scale(1.05); \}\
+            100% \{ transform: rotate(0) scale(1); \}\
+        \}\
+        \
+        @keyframes shimmer \{\
+            100% \{\
+                transform: translateX(100%);\
+            \}\
+        \}\
+        \
+        .card-drawn \{\
+            animation: fadeIn 0.8s ease-out;\
+        \}\
+        \
+        .shuffling \{\
+            animation: shuffle 0.6s ease-in-out;\
+        \}\
+        \
+        /* Particle effects */\
+        .particles \{\
+            position: absolute;\
+            top: 0;\
+            left: 0;\
+            width: 100%;\
+            height: 100%;\
+            z-index: -1;\
+            overflow: hidden;\
+        \}\
+        \
+        .particle \{\
+            position: absolute;\
+            background: rgba(243, 156, 18, 0.15);\
+            border-radius: 50%;\
+            animation: float 15s infinite linear;\
+        \}\
+        \
+        @keyframes float \{\
+            0% \{\
+                transform: translateY(0) translateX(0) rotate(0deg);\
+                opacity: 1;\
+            \}\
+            100% \{\
+                transform: translateY(-1000px) translateX(1000px) rotate(720deg);\
+                opacity: 0;\
+            \}\
+        \}\
+        \
+        /* Cover-inspired elements */\
+        .cover-quote \{\
+            font-family: 'Playfair Display', serif;\
+            font-size: 1.3rem;\
+            color: var(--ivory);\
+            margin: 15px 0;\
+            line-height: 1.8;\
+            text-align: center;\
+            max-width: 500px;\
+            margin: 0 auto;\
+        \}\
+        \
+        .cover-highlight \{\
+            color: var(--gold);\
+            font-weight: bold;\
+            display: block;\
+        \}\
+        \
+        /* Cover image styling */\
+        .cover-background \{\
+            position: relative;\
+            background-image: linear-gradient(rgba(26, 26, 46, 0.8), rgba(13, 13, 26, 0.9)), \
+                              url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');\
+            background-size: cover;\
+            background-position: center;\
+            border-radius: 12px;\
+            padding: 25px;\
+            margin: 10px 0;\
+        \}\
+        \
+        .cover-text \{\
+            font-family: 'Playfair Display', serif;\
+            color: var(--ivory);\
+            font-size: 1.8rem;\
+            line-height: 1.6;\
+            text-align: center;\
+            max-width: 600px;\
+            margin: 0 auto;\
+        \}\
+        \
+        .cover-emphasis \{\
+            color: var(--gold);\
+            font-weight: bold;\
+            font-style: italic;\
+        \}\
+        \
+        /* Responsive design */\
+        @media (max-width: 768px) \{\
+            .logo \{\
+                font-size: 2.2rem;\
+            \}\
+            \
+            .tagline \{\
+                font-size: 0.9rem;\
+                letter-spacing: 2px;\
+            \}\
+            \
+            .app-container \{\
+                padding: 15px;\
+            \}\
+            \
+            .card \{\
+                height: 400px;\
+            \}\
+            \
+            .draw-btn \{\
+                padding: 16px 35px;\
+                font-size: 1.2rem;\
+            \}\
+            \
+            .cover-quote \{\
+                font-size: 1.1rem;\
+            \}\
+            \
+            .cover-text \{\
+                font-size: 1.4rem;\
+            \}\
+        \}\
+        \
+        @media (max-width: 480px) \{\
+            .card \{\
+                height: 350px;\
+            \}\
+            \
+            .logo \{\
+                font-size: 1.9rem;\
+            \}\
+            \
+            .cover-quote \{\
+                font-size: 1rem;\
+            \}\
+            \
+            .cover-text \{\
+                font-size: 1.2rem;\
+            \}\
+            \
+            .draw-btn \{\
+                font-size: 1.1rem;\
+                padding: 14px 30px;\
+            \}\
+        \}\
+    </style>\
+</head>\
+<body>\
+    <div class="particles" id="particles"></div>\
+    \
+    <header>\
+        <div class="logo">Soulful Selling</div>\
+        <div class="tagline">Authentic Connection Cards</div>\
+        <div class="divider"></div>\
+        \
+        <div class="cover-quote">\
+            "<span class="cover-highlight">Hold space for silence</span>. \
+            Be the calm in their chaos. \
+            <span class="cover-highlight">Sell with heart</span>."\
+        </div>\
+    </header>\
+    \
+    <div class="cover-background">\
+        <div class="cover-text">\
+            HOLD SPACE FOR SILENCE<br>\
+            <span class="cover-emphasis">BE THE CALM IN THEIR CHAOS</span><br>\
+            FORWARD WITH CARE<br>\
+            SELL WITH HEART<br>\
+            <span class="cover-emphasis">SOULFUL SELLING CARDS</span>\
+        </div>\
+    </div>\
+    \
+    <div class="app-container">\
+        <div class="card-area">\
+            <div class="card card-back" id="card-display">\
+                <!-- Card back will be shown initially -->\
+            </div>\
+        </div>\
+        \
+        <div class="controls">\
+            <button class="draw-btn" id="draw-btn">Sacred Sales Card</button>\
+        </div>\
+        \
+        <div class="instructions">\
+            <h3>Your Sacred Sales Journey</h3>\
+            <ol class="steps">\
+                <li><strong>Center yourself</strong> before important conversations</li>\
+                <li><strong>Set your intention</strong> for authentic connection</li>\
+                <li><strong>Draw your card</strong> and receive sacred guidance</li>\
+                <li><strong>Carry the wisdom</strong> into your sales interactions</li>\
+            </ol>\
+        </div>\
+    </div>\
+    \
+    <footer>\
+        Remember: You are here to connect, serve, and guide those ready to receive what you offer.\
+    </footer>\
+\
+    <script>\
+        // All your card filenames from both screenshots\
+        const cardImages = [\
+            "Ask Care.Tell.MeanIt.png",\
+            "ask.like.care.png",\
+            "ask.yourself.png",\
+            "askyourself.png",\
+            "be.storyteller.png",\
+            "before.convince.connect.png",\
+            "betterquestions.png",\
+            "bored.pitch.connect.png",\
+            "Bored.Pitch.png",\
+            "Build.Relationships.png",\
+            "build.trust.moment.png",\
+            "Build.Trust.png",\
+            "buildtrust.png",\
+            "call.close.chance.png",\
+            "campfirestory.png",\
+            "care.beyond.profits.png",\
+            "closelaptop.png",\
+            "Connect.Deeply.png",\
+            "ConnectDeeply.png",\
+            "convince.connect.sell.png",\
+            "Curiosity.Is.Louder.png",\
+            "dontclose.open.png",\
+            "emotions.drive.png",\
+            "empathy.action.png",\
+            "empathy.sharp.edge.png",\
+            "fake.resoonance.practice.it.png",\
+            "feel.it.png",\
+            "feel.understood.png",\
+            "foward.with.care.png",\
+            "goodstory.safebridge.png",\
+            "guidjourney.png",\
+            "hero.guide.png",\
+            "Hold.Space.Silence.png",\
+            "Lean.In.png",\
+            "nobody.remembers.png",\
+            "objection.png",\
+            "pause.listen.png",\
+            "person.dog.thinks.png",\
+            "person.hope.phone.png",\
+            "pitches.felt..png",\
+            "practice.prep.process.png",\
+            "presence.png",\
+            "Pull.Push.png",\
+            "PushPull.png",\
+            "question.assumptions.png",\
+            "Question.Shifts.Room.png",\
+            "Reflect.Yourself.png",\
+            "repetition.builds.png",\
+            "SafetySells.png",\
+            "sales.scripts.png",\
+            "saytorfriend.png",\
+            "see.them.love.png",\
+            "seeyourself.png",\
+            "Sell.Future.Self.png",\
+            "Selling.Soul.Yourself.png",\
+            "SELLINGWITHSOUL.amazon.png",\
+            "SellWithHeart.png",\
+            "sellwithsoul.png",\
+            "showne.png",\
+            "slowdown.png",\
+            "Slowdown.Speedup.png",\
+            "SOULFUL.SELLING.HANDBOOK.AMAZON.png",\
+            "Space.Silence.png",\
+            "speakhuman.png",\
+            "startwhereyouare.png",\
+            "stories.backup.plan.png",\
+            "story.question.png",\
+            "story.solves.fear.png",\
+            "Storymaker.png",\
+            "support.courage.png",\
+            "tell.stories.png",\
+            "Time.Connect.png",\
+            "trade.control.curiosity.png",\
+            "vulnerability.Power.move.png",\
+            "YES.png",\
+            "Your.Value.png",\
+            "your.voice.png"\
+        ];\
+        \
+        // DOM Elements\
+        const cardDisplay = document.getElementById('card-display');\
+        const drawButton = document.getElementById('draw-btn');\
+        \
+        // Draw a random card\
+        function drawCard() \{\
+            // Add shuffling animation\
+            cardDisplay.classList.remove('card-drawn');\
+            cardDisplay.classList.add('shuffling');\
+            \
+            setTimeout(() => \{\
+                // Get random card\
+                const randomIndex = Math.floor(Math.random() * cardImages.length);\
+                const cardImage = cardImages[randomIndex];\
+                \
+                // Create image element\
+                const img = document.createElement('img');\
+                img.src = `images/$\{cardImage\}`;\
+                img.alt = cardImage.replace('.png', '');\
+                img.className = 'card-image';\
+                \
+                // Update card display\
+                cardDisplay.innerHTML = '';\
+                cardDisplay.appendChild(img);\
+                \
+                // Remove back styling and add drawn animation\
+                cardDisplay.classList.remove('card-back', 'shuffling');\
+                cardDisplay.classList.add('card-drawn');\
+                \
+            \}, 600);\
+        \}\
+        \
+        // Create background particles\
+        function createParticles() \{\
+            const particlesContainer = document.getElementById('particles');\
+            const particleCount = 25;\
+            \
+            for (let i = 0; i < particleCount; i++) \{\
+                const particle = document.createElement('div');\
+                particle.classList.add('particle');\
+                \
+                // Random size and position\
+                const size = Math.random() * 15 + 5;\
+                const posX = Math.random() * 100;\
+                const posY = Math.random() * 100;\
+                const delay = Math.random() * 15;\
+                \
+                particle.style.width = `$\{size\}px`;\
+                particle.style.height = `$\{size\}px`;\
+                particle.style.left = `$\{posX\}%`;\
+                particle.style.top = `$\{posY\}%`;\
+                particle.style.animationDelay = `$\{delay\}s`;\
+                \
+                particlesContainer.appendChild(particle);\
+            \}\
+        \}\
+        \
+        // Event Listeners\
+        drawButton.addEventListener('click', drawCard);\
+        \
+        // Initialize\
+        createParticles();\
+    </script>\
+</body>\
+</html>}
