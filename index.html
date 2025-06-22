@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soulful Selling Cards</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --deep-blue: #1a1a2e;
@@ -28,6 +28,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             text-align: center;
             line-height: 1.6;
             overflow: hidden;
@@ -40,29 +41,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            flex-grow: 1;
-            padding: 20px 0;
-        }
-        
-        .header {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.4rem;
-            font-weight: 700;
-            color: var(--gold);
-            margin-bottom: 5px;
-            text-shadow: 0 0 15px rgba(243, 156, 18, 0.3);
-        }
-        
-        .subtitle {
-            font-size: 1.1rem;
-            color: rgba(230, 213, 184, 0.9);
-            text-transform: uppercase;
-            letter-spacing: 3px;
+            position: relative;
+            z-index: 10;
         }
         
         .card-container {
@@ -71,7 +51,7 @@
             height: 75vh;
             max-height: 600px;
             position: relative;
-            margin: 10px 0 30px;
+            margin-bottom: 30px;
             perspective: 1000px;
         }
         
@@ -97,33 +77,62 @@
             backface-visibility: hidden;
             border-radius: 20px;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            border: 3px solid rgba(243, 156, 18, 0.3);
-        }
-        
-        .card-front {
-            background: linear-gradient(135deg, var(--deep-blue) 0%, #2a2a4e 100%);
-            display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            overflow: hidden;
+        }
+        
+        .card-front {
+            background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 30px;
+            color: var(--ivory);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
         
         .card-back {
-            background-size: cover;
-            background-position: center;
+            background: var(--deep-blue);
             transform: rotateY(180deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .card-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin: 10px 0;
+            font-weight: 600;
         }
         
         .card-image {
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
-            padding: 15px;
+            padding: 20px;
             border-radius: 15px;
+        }
+        
+        .tap-hint {
+            position: absolute;
+            bottom: 30px;
+            font-style: italic;
+            font-size: 1.1rem;
+            background: rgba(26, 26, 46, 0.7);
+            padding: 10px 20px;
+            border-radius: 30px;
+            backdrop-filter: blur(5px);
         }
         
         .controls {
@@ -132,15 +141,14 @@
             flex-direction: column;
             align-items: center;
             gap: 15px;
-            margin-top: 10px;
         }
         
         .draw-btn {
             background: var(--gold);
             color: var(--dark-blue);
             border: none;
-            padding: 16px 45px;
-            font-size: 1.2rem;
+            padding: 18px 45px;
+            font-size: 1.3rem;
             font-weight: 700;
             border-radius: 50px;
             cursor: pointer;
@@ -149,7 +157,7 @@
             letter-spacing: 1px;
             text-transform: uppercase;
             font-family: 'Playfair Display', serif;
-            margin-top: 10px;
+            margin-bottom: 30px;
             border: 2px solid rgba(230, 213, 184, 0.5);
         }
         
@@ -164,9 +172,9 @@
         }
         
         .instructions {
-            background: rgba(26, 26, 46, 0.5);
+            background: rgba(26, 26, 46, 0.7);
             border-radius: 15px;
-            padding: 20px;
+            padding: 25px;
             margin-top: 20px;
             border-left: 3px solid var(--gold);
             width: 100%;
@@ -177,39 +185,40 @@
             font-family: 'Playfair Display', serif;
             color: var(--gold);
             margin-bottom: 15px;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
         }
         
         .steps {
             text-align: left;
             list-style: none;
-            font-size: 0.95rem;
+            font-size: 1rem;
         }
         
         .steps li {
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             line-height: 1.6;
-            padding-left: 25px;
+            padding-left: 30px;
             position: relative;
         }
         
         .steps li::before {
             content: "•";
             color: var(--gold);
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             position: absolute;
-            left: 5px;
-            top: -5px;
+            left: 0;
+            top: -8px;
         }
         
         footer {
-            margin-top: auto;
+            margin-top: 20px;
             padding: 20px 0;
-            font-size: 0.9rem;
-            color: rgba(230, 213, 184, 0.7);
+            font-size: 1rem;
+            color: rgba(230, 213, 184, 0.8);
             text-align: center;
             width: 100%;
             max-width: 500px;
+            font-style: italic;
         }
         
         /* Animations */
@@ -233,45 +242,6 @@
         
         .floating {
             animation: float 3s ease-in-out infinite;
-        }
-        
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .logo {
-                font-size: 2rem;
-            }
-            
-            .subtitle {
-                font-size: 0.9rem;
-            }
-            
-            .card-container {
-                height: 65vh;
-            }
-            
-            .draw-btn {
-                padding: 14px 35px;
-                font-size: 1.1rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 1.8rem;
-            }
-            
-            .card-container {
-                height: 60vh;
-                max-height: 500px;
-            }
-            
-            .instructions {
-                padding: 15px;
-            }
-            
-            .instructions h3 {
-                font-size: 1.2rem;
-            }
         }
         
         /* Decorative elements */
@@ -310,15 +280,69 @@
             border-left: none;
             border-top: none;
         }
+        
+        /* Background particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(243, 156, 18, 0.1);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .card-container {
+                height: 65vh;
+            }
+            
+            .card-title {
+                font-size: 1.8rem;
+            }
+            
+            .card-text {
+                font-size: 1.1rem;
+            }
+            
+            .draw-btn {
+                padding: 16px 35px;
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .card-container {
+                height: 60vh;
+                max-height: 500px;
+            }
+            
+            .card-title {
+                font-size: 1.6rem;
+            }
+            
+            .instructions {
+                padding: 20px;
+            }
+            
+            .instructions h3 {
+                font-size: 1.3rem;
+            }
+        }
     </style>
 </head>
 <body>
+    <div class="particles" id="particles"></div>
+    
     <div class="app-container">
-        <div class="header">
-            <div class="logo">Soulful Selling</div>
-            <div class="subtitle">Authentic Connection Cards</div>
-        </div>
-        
         <div class="card-container">
             <div class="card floating" id="card">
                 <div class="card-face card-front">
@@ -326,8 +350,16 @@
                     <div class="corner-decoration corner-tr"></div>
                     <div class="corner-decoration corner-bl"></div>
                     <div class="corner-decoration corner-br"></div>
-                    <h2>Your Sacred Sales Card</h2>
-                    <p style="margin-top: 20px; font-style: italic;">Tap to reveal your guidance</p>
+                    
+                    <div class="card-title">Soulful Selling</div>
+                    <div class="card-text">AUTHENTIC CONNECTION CARDS</div>
+                    
+                    <div class="divider"></div>
+                    
+                    <div class="card-text">Your Sacred Sales Card</div>
+                    <div class="card-text" style="font-style: italic; font-size: 1.1rem;">Tap to reveal your guidance</div>
+                    
+                    <div class="tap-hint">DRAW SACRED CARD</div>
                 </div>
                 <div class="card-face card-back" id="card-display">
                     <!-- Card back will be shown here -->
@@ -440,16 +472,36 @@
         const card = document.getElementById('card');
         const cardDisplay = document.getElementById('card-display');
         const drawButton = document.getElementById('draw-btn');
+        const particlesContainer = document.getElementById('particles');
         
-        // Set card back to your cover image
-        cardDisplay.style.backgroundImage = "url('images/SOULFUL.SELLING.COVER.png')";
-        cardDisplay.style.backgroundSize = "cover";
-        cardDisplay.style.backgroundPosition = "center";
+        // Create background particles
+        function createParticles() {
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random size and position
+                const size = Math.random() * 20 + 5;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const delay = Math.random() * 15;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                particle.style.animationDelay = `${delay}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
         
         // Draw a random card
         function drawCard() {
             // Flip the card to show the back first
-            card.classList.add('flipped');
+            card.classList.remove('flipped');
             
             setTimeout(() => {
                 // Get random card
@@ -469,23 +521,27 @@
                 // Add drawn animation
                 img.classList.add('card-drawn');
                 
-            }, 800);
+                // Flip to show the new card
+                setTimeout(() => {
+                    card.classList.add('flipped');
+                }, 300);
+                
+            }, 300);
         }
         
         // Event Listeners
-        drawButton.addEventListener('click', () => {
-            // Reset card to front before drawing
-            card.classList.remove('flipped');
-            setTimeout(drawCard, 300);
-        });
+        drawButton.addEventListener('click', drawCard);
         
         // Allow tap/click on card to flip back
         card.addEventListener('click', () => {
-            card.classList.toggle('flipped');
+            if (card.classList.contains('flipped')) {
+                card.classList.remove('flipped');
+            }
         });
         
-        // Initialize with a random card
-        setTimeout(drawCard, 1000);
+        // Initialize
+        createParticles();
+        setTimeout(drawCard, 1000); // Draw first card after 1 second
     </script>
 </body>
 </html>
