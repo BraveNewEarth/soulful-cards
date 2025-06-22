@@ -1,1 +1,225 @@
-test
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soulful Selling Cards</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-blue: #1a1a2e;
+            --dark-blue: #0d0d1a;
+            --gold: #f39c12;
+            --gold-dark: #e67e22;
+            --ivory: #e6d5b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--deep-blue) 100%);
+            color: var(--ivory);
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .app-header {
+            margin-bottom: 30px;
+        }
+
+        .app-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .app-subtitle {
+            font-size: 1rem;
+            letter-spacing: 2px;
+            color: rgba(230, 213, 184, 0.8);
+            text-transform: uppercase;
+        }
+
+        .card-container {
+            width: 100%;
+            max-width: 350px;
+            height: 500px;
+            perspective: 1000px;
+            margin: 30px 0;
+        }
+
+        .card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+            cursor: pointer;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        }
+
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+        }
+
+        .card-front,
+        .card-back {
+            background: var(--deep-blue);
+        }
+
+        .card-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            padding: 20px;
+        }
+
+        .card-back {
+            transform: rotateY(180deg);
+        }
+
+        .draw-btn {
+            background: var(--gold);
+            color: var(--dark-blue);
+            border: none;
+            padding: 16px 40px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .draw-btn:hover {
+            background: var(--gold-dark);
+        }
+
+        .instructions {
+            margin-top: 20px;
+            font-size: 0.95rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-left: 3px solid var(--gold);
+            border-radius: 10px;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            font-style: italic;
+            color: rgba(230, 213, 184, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <div class="app-header">
+            <div class="app-title">Soulful Selling</div>
+            <div class="app-subtitle">Authentic Connection Cards</div>
+        </div>
+
+        <div class="card-container">
+            <div class="card" id="card">
+                <div class="card-face card-front">
+                    <img src="images/whatiwant.png" alt="Card Front" class="card-image">
+                </div>
+                <div class="card-face card-back" id="card-display">
+                    <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Placeholder Card" class="card-image">
+                </div>
+            </div>
+        </div>
+
+        <button class="draw-btn" id="draw-btn">Draw Sacred Card</button>
+
+        <div class="instructions">
+            <p><strong>Your Sacred Sales Journey</strong></p>
+            <ul>
+                <li>Center yourself before important conversations</li>
+                <li>Set your intention for authentic connection</li>
+                <li>Draw your card and receive sacred guidance</li>
+                <li>Carry the wisdom into your sales interactions</li>
+            </ul>
+        </div>
+
+        <footer>
+            Remember: You are here to connect, serve, and guide those ready to receive what you offer.
+        </footer>
+    </div>
+
+    <script>
+        const cardImages = [
+            "Ask Care.Tell.MeanIt.png", "ask.like.care.png", "ask.yourself.png", "askyourself.png",
+            "be.storyteller.png", "before.convince.connect.png", "betterquestions.png", "bored.pitch.connect.png",
+            "Bored.Pitch.png", "Build.Relationships.png", "build.trust.moment.png", "Build.Trust.png",
+            "buildtrust.png", "call.close.chance.png", "campfirestory.png", "care.beyond.profits.png",
+            "closelaptop.png", "Connect.Deeply.png", "ConnectDeeply.png", "convince.connect.sell.png",
+            "Curiosity.Is.Louder.png", "dontclose.open.png", "emotions.drive.png", "empathy.action.png",
+            "empathy.sharp.edge.png", "fake.resoonance.practice.it.png", "feel.it.png", "feel.understood.png",
+            "foward.with.care.png", "goodstory.safebridge.png", "guidjourney.png", "hero.guide.png",
+            "Hold.Space.Silence.png", "Lean.In.png", "nobody.remembers.png", "objection.png",
+            "pause.listen.png", "person.dog.thinks.png", "person.hope.phone.png", "pitches.felt..png",
+            "practice.prep.process.png", "presence.png", "Pull.Push.png", "PushPull.png",
+            "question.assumptions.png", "Question.Shifts.Room.png", "Reflect.Yourself.png", "repetition.builds.png",
+            "SafetySells.png", "sales.scripts.png", "saytorfriend.png", "see.them.love.png",
+            "seeyourself.png", "Sell.Future.Self.png", "Selling.Soul.Yourself.png", "SELLINGWITHSOUL.amazon.png",
+            "SellWithHeart.png", "sellwithsoul.png", "showne.png", "slowdown.png",
+            "Slowdown.Speedup.png", "SOULFUL.SELLING.HANDBOOK.AMAZON.png", "Space.Silence.png", "speakhuman.png",
+            "startwhereyouare.png", "stories.backup.plan.png", "story.question.png", "story.solves.fear.png",
+            "Storymaker.png", "support.courage.png", "tell.stories.png", "Time.Connect.png",
+            "trade.control.curiosity.png", "vulnerability.Power.move.png", "YES.png", "Your.Value.png",
+            "your.voice.png"
+        ];
+
+        const card = document.getElementById('card');
+        const cardDisplay = document.getElementById('card-display');
+        const drawButton = document.getElementById('draw-btn');
+
+        function drawCard() {
+            card.classList.add('flipped');
+            const randomIndex = Math.floor(Math.random() * cardImages.length);
+            const cardImage = cardImages[randomIndex];
+            cardDisplay.innerHTML = `<img src="images/${cardImage}" alt="Sacred Card" class="card-image">`;
+        }
+
+        drawButton.addEventListener('click', drawCard);
+
+        card.addEventListener('click', () => {
+            if (card.classList.contains('flipped')) {
+                card.classList.remove('flipped');
+            }
+        });
+    </script>
+</body>
+</html>
