@@ -13,13 +13,13 @@
             --gold-dark: #e67e22;
             --ivory: #e6d5b8;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             background: linear-gradient(135deg, var(--dark-blue) 0%, var(--deep-blue) 100%);
             color: var(--ivory);
@@ -30,327 +30,116 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            line-height: 1.6;
-            overflow: hidden;
             padding: 20px;
         }
-        
+
         .app-container {
             width: 100%;
             max-width: 500px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            position: relative;
-            z-index: 10;
         }
-        
+
         .app-header {
             margin-bottom: 30px;
-            text-align: center;
         }
-        
+
         .app-title {
             font-family: 'Playfair Display', serif;
             font-size: 2.8rem;
             font-weight: 700;
             color: var(--gold);
-            margin-bottom: 10px;
-            text-shadow: 0 0 15px rgba(243, 156, 18, 0.3);
         }
-        
+
         .app-subtitle {
-            font-size: 1.2rem;
-            color: rgba(230, 213, 184, 0.9);
+            font-size: 1rem;
+            letter-spacing: 2px;
+            color: rgba(230, 213, 184, 0.8);
             text-transform: uppercase;
-            letter-spacing: 3px;
         }
-        
+
         .card-container {
             width: 100%;
             max-width: 350px;
             height: 500px;
-            position: relative;
-            margin-bottom: 30px;
             perspective: 1000px;
+            margin: 30px 0;
         }
-        
+
         .card {
             width: 100%;
             height: 100%;
-            position: absolute;
+            position: relative;
             transform-style: preserve-3d;
             transition: transform 0.8s;
             cursor: pointer;
             border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
         }
-        
+
         .card.flipped {
             transform: rotateY(180deg);
         }
-        
+
         .card-face {
             position: absolute;
             width: 100%;
             height: 100%;
             backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            border: 3px solid rgba(243, 156, 18, 0.3);
         }
-        
-        .card-front {
-            background: var(--deep-blue);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 30px;
-            color: var(--ivory);
-            text-align: center;
-        }
-        
-        .cover-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-            color: var(--gold);
-        }
-        
-        .cover-text {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            margin: 10px 0;
-            font-weight: 600;
-        }
-        
+
+        .card-front,
         .card-back {
             background: var(--deep-blue);
-            transform: rotateY(180deg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
-        
+
         .card-image {
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
             padding: 20px;
-            border-radius: 15px;
         }
-        
-        .tap-hint {
-            position: absolute;
-            bottom: 30px;
-            font-style: italic;
-            font-size: 1.1rem;
-            background: rgba(26, 26, 46, 0.7);
-            padding: 10px 20px;
-            border-radius: 30px;
-            backdrop-filter: blur(5px);
+
+        .card-back {
+            transform: rotateY(180deg);
         }
-        
-        .controls {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-        
+
         .draw-btn {
             background: var(--gold);
             color: var(--dark-blue);
             border: none;
-            padding: 18px 45px;
-            font-size: 1.3rem;
+            padding: 16px 40px;
+            font-size: 1.2rem;
             font-weight: 700;
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
-            letter-spacing: 1px;
-            text-transform: uppercase;
             font-family: 'Playfair Display', serif;
-            border: 2px solid rgba(230, 213, 184, 0.5);
         }
-        
+
         .draw-btn:hover {
             background: var(--gold-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(243, 156, 18, 0.6);
         }
-        
-        .draw-btn:active {
-            transform: translateY(1px);
-        }
-        
+
         .instructions {
-            background: rgba(26, 26, 46, 0.7);
-            border-radius: 15px;
-            padding: 25px;
             margin-top: 20px;
+            font-size: 0.95rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
             border-left: 3px solid var(--gold);
-            width: 100%;
-            max-width: 450px;
+            border-radius: 10px;
         }
-        
-        .instructions h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--gold);
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-        
-        .steps {
-            text-align: left;
-            list-style: none;
-            font-size: 1rem;
-        }
-        
-        .steps li {
-            margin-bottom: 15px;
-            line-height: 1.6;
-            padding-left: 30px;
-            position: relative;
-        }
-        
-        .steps li::before {
-            content: "•";
-            color: var(--gold);
-            font-size: 1.8rem;
-            position: absolute;
-            left: 0;
-            top: -8px;
-        }
-        
+
         footer {
-            margin-top: 20px;
-            padding: 20px 0;
-            font-size: 1rem;
-            color: rgba(230, 213, 184, 0.8);
-            text-align: center;
-            width: 100%;
-            max-width: 500px;
+            margin-top: 30px;
+            font-size: 0.9rem;
             font-style: italic;
-        }
-        
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-        
-        .card-drawn {
-            animation: fadeIn 0.8s ease-out;
-        }
-        
-        .floating {
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        /* Decorative elements */
-        .corner-decoration {
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            border: 2px solid var(--gold);
-            opacity: 0.3;
-        }
-        
-        .corner-tl {
-            top: 15px;
-            left: 15px;
-            border-right: none;
-            border-bottom: none;
-        }
-        
-        .corner-tr {
-            top: 15px;
-            right: 15px;
-            border-left: none;
-            border-bottom: none;
-        }
-        
-        .corner-bl {
-            bottom: 15px;
-            left: 15px;
-            border-right: none;
-            border-top: none;
-        }
-        
-        .corner-br {
-            bottom: 15px;
-            right: 15px;
-            border-left: none;
-            border-top: none;
-        }
-        
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .app-title {
-                font-size: 2.2rem;
-            }
-            
-            .app-subtitle {
-                font-size: 1rem;
-            }
-            
-            .card-container {
-                height: 450px;
-            }
-            
-            .cover-title {
-                font-size: 1.8rem;
-            }
-            
-            .cover-text {
-                font-size: 1.1rem;
-            }
-            
-            .draw-btn {
-                padding: 16px 35px;
-                font-size: 1.1rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .app-title {
-                font-size: 1.9rem;
-            }
-            
-            .card-container {
-                height: 400px;
-            }
-            
-            .cover-title {
-                font-size: 1.6rem;
-            }
-            
-            .instructions {
-                padding: 20px;
-            }
-            
-            .instructions h3 {
-                font-size: 1.3rem;
-            }
+            color: rgba(230, 213, 184, 0.7);
         }
     </style>
 </head>
@@ -360,166 +149,77 @@
             <div class="app-title">Soulful Selling</div>
             <div class="app-subtitle">Authentic Connection Cards</div>
         </div>
-        
+
         <div class="card-container">
-            <div class="card floating" id="card">
+            <div class="card" id="card">
                 <div class="card-face card-front">
-                    <div class="corner-decoration corner-tl"></div>
-                    <div class="corner-decoration corner-tr"></div>
-                    <div class="corner-decoration corner-bl"></div>
-                    <div class="corner-decoration corner-br"></div>
-                    
-                    <div class="cover-title">Soulful Selling Cards</div>
-                    
-                    <div class="cover-text">HOLD SPACE FOR SILENCE</div>
-                    <div class="cover-text">BE THE CALM IN THEIR CHAOS</div>
-                    <div class="cover-text">FORWARD WITH CARE</div>
-                    <div class="cover-text">SELL WITH HEART</div>
-                    
-                    <div class="tap-hint">Tap card to reveal guidance</div>
+                    <img src="images/whatiwant.png" alt="Card Front" class="card-image">
                 </div>
                 <div class="card-face card-back" id="card-display">
-                    <!-- Card back will be shown here -->
-                    <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Sacred Card" class="card-image">
+                    <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Placeholder Card" class="card-image">
                 </div>
             </div>
         </div>
-        
-        <div class="controls">
-            <button class="draw-btn" id="draw-btn">Draw Sacred Card</button>
-        </div>
-        
+
+        <button class="draw-btn" id="draw-btn">Draw Sacred Card</button>
+
         <div class="instructions">
-            <h3>Your Sacred Sales Journey</h3>
-            <ol class="steps">
-                <li><strong>Center yourself</strong> before important conversations</li>
-                <li><strong>Set your intention</strong> for authentic connection</li>
-                <li><strong>Draw your card</strong> and receive sacred guidance</li>
-                <li><strong>Carry the wisdom</strong> into your sales interactions</li>
-            </ol>
+            <p><strong>Your Sacred Sales Journey</strong></p>
+            <ul>
+                <li>Center yourself before important conversations</li>
+                <li>Set your intention for authentic connection</li>
+                <li>Draw your card and receive sacred guidance</li>
+                <li>Carry the wisdom into your sales interactions</li>
+            </ul>
         </div>
-        
+
         <footer>
             Remember: You are here to connect, serve, and guide those ready to receive what you offer.
         </footer>
     </div>
 
     <script>
-        // Sample card filenames (replace with your actual filenames)
         const cardImages = [
-            "Ask Care.Tell.MeanIt.png",
-            "ask.like.care.png",
-            "ask.yourself.png",
-            "askyourself.png",
-            "be.storyteller.png",
-            "before.convince.connect.png",
-            "betterquestions.png",
-            "bored.pitch.connect.png",
-            "Bored.Pitch.png",
-            "Build.Relationships.png",
-            "build.trust.moment.png",
-            "Build.Trust.png",
-            "buildtrust.png",
-            "call.close.chance.png",
-            "campfirestory.png",
-            "care.beyond.profits.png",
-            "closelaptop.png",
-            "Connect.Deeply.png",
-            "ConnectDeeply.png",
-            "convince.connect.sell.png",
-            "Curiosity.Is.Louder.png",
-            "dontclose.open.png",
-            "emotions.drive.png",
-            "empathy.action.png",
-            "empathy.sharp.edge.png",
-            "fake.resoonance.practice.it.png",
-            "feel.it.png",
-            "feel.understood.png",
-            "foward.with.care.png",
-            "goodstory.safebridge.png",
-            "guidjourney.png",
-            "hero.guide.png",
-            "Hold.Space.Silence.png",
-            "Lean.In.png",
-            "nobody.remembers.png",
-            "objection.png",
-            "pause.listen.png",
-            "person.dog.thinks.png",
-            "person.hope.phone.png",
-            "pitches.felt..png",
-            "practice.prep.process.png",
-            "presence.png",
-            "Pull.Push.png",
-            "PushPull.png",
-            "question.assumptions.png",
-            "Question.Shifts.Room.png",
-            "Reflect.Yourself.png",
-            "repetition.builds.png",
-            "SafetySells.png",
-            "sales.scripts.png",
-            "saytorfriend.png",
-            "see.them.love.png",
-            "seeyourself.png",
-            "Sell.Future.Self.png",
-            "Selling.Soul.Yourself.png",
-            "SELLINGWITHSOUL.amazon.png",
-            "SellWithHeart.png",
-            "sellwithsoul.png",
-            "showne.png",
-            "slowdown.png",
-            "Slowdown.Speedup.png",
-            "SOULFUL.SELLING.HANDBOOK.AMAZON.png",
-            "Space.Silence.png",
-            "speakhuman.png",
-            "startwhereyouare.png",
-            "stories.backup.plan.png",
-            "story.question.png",
-            "story.solves.fear.png",
-            "Storymaker.png",
-            "support.courage.png",
-            "tell.stories.png",
-            "Time.Connect.png",
-            "trade.control.curiosity.png",
-            "vulnerability.Power.move.png",
-            "YES.png",
-            "Your.Value.png",
+            "Ask Care.Tell.MeanIt.png", "ask.like.care.png", "ask.yourself.png", "askyourself.png",
+            "be.storyteller.png", "before.convince.connect.png", "betterquestions.png", "bored.pitch.connect.png",
+            "Bored.Pitch.png", "Build.Relationships.png", "build.trust.moment.png", "Build.Trust.png",
+            "buildtrust.png", "call.close.chance.png", "campfirestory.png", "care.beyond.profits.png",
+            "closelaptop.png", "Connect.Deeply.png", "ConnectDeeply.png", "convince.connect.sell.png",
+            "Curiosity.Is.Louder.png", "dontclose.open.png", "emotions.drive.png", "empathy.action.png",
+            "empathy.sharp.edge.png", "fake.resoonance.practice.it.png", "feel.it.png", "feel.understood.png",
+            "foward.with.care.png", "goodstory.safebridge.png", "guidjourney.png", "hero.guide.png",
+            "Hold.Space.Silence.png", "Lean.In.png", "nobody.remembers.png", "objection.png",
+            "pause.listen.png", "person.dog.thinks.png", "person.hope.phone.png", "pitches.felt..png",
+            "practice.prep.process.png", "presence.png", "Pull.Push.png", "PushPull.png",
+            "question.assumptions.png", "Question.Shifts.Room.png", "Reflect.Yourself.png", "repetition.builds.png",
+            "SafetySells.png", "sales.scripts.png", "saytorfriend.png", "see.them.love.png",
+            "seeyourself.png", "Sell.Future.Self.png", "Selling.Soul.Yourself.png", "SELLINGWITHSOUL.amazon.png",
+            "SellWithHeart.png", "sellwithsoul.png", "showne.png", "slowdown.png",
+            "Slowdown.Speedup.png", "SOULFUL.SELLING.HANDBOOK.AMAZON.png", "Space.Silence.png", "speakhuman.png",
+            "startwhereyouare.png", "stories.backup.plan.png", "story.question.png", "story.solves.fear.png",
+            "Storymaker.png", "support.courage.png", "tell.stories.png", "Time.Connect.png",
+            "trade.control.curiosity.png", "vulnerability.Power.move.png", "YES.png", "Your.Value.png",
             "your.voice.png"
         ];
-        
-        // DOM Elements
+
         const card = document.getElementById('card');
         const cardDisplay = document.getElementById('card-display');
         const drawButton = document.getElementById('draw-btn');
-        
-        // Draw a random card
+
         function drawCard() {
-            // Flip the card to show the back
             card.classList.add('flipped');
-            
-            // Get random card
             const randomIndex = Math.floor(Math.random() * cardImages.length);
             const cardImage = cardImages[randomIndex];
-            
-            // Update card display
             cardDisplay.innerHTML = `<img src="images/${cardImage}" alt="Sacred Card" class="card-image">`;
-            
-            // Add animation to the new card
-            const img = cardDisplay.querySelector('img');
-            img.classList.add('card-drawn');
         }
-        
-        // Event Listeners
+
         drawButton.addEventListener('click', drawCard);
-        
-        // Allow tap/click on card to flip back
+
         card.addEventListener('click', () => {
             if (card.classList.contains('flipped')) {
                 card.classList.remove('flipped');
             }
         });
-        
-        // Draw the first card on page load
-        setTimeout(drawCard, 1000);
     </script>
 </body>
 </html>
