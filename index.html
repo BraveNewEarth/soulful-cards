@@ -45,11 +45,31 @@
             z-index: 10;
         }
         
+        .app-header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .app-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 10px;
+            text-shadow: 0 0 15px rgba(243, 156, 18, 0.3);
+        }
+        
+        .app-subtitle {
+            font-size: 1.2rem;
+            color: rgba(230, 213, 184, 0.9);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
         .card-container {
             width: 100%;
             max-width: 350px;
-            height: 75vh;
-            max-height: 600px;
+            height: 500px;
             position: relative;
             margin-bottom: 30px;
             perspective: 1000px;
@@ -77,19 +97,37 @@
             backface-visibility: hidden;
             border-radius: 20px;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            border: 3px solid rgba(243, 156, 18, 0.3);
         }
         
         .card-front {
-            background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
-            background-size: cover;
-            background-position: center;
+            background: var(--deep-blue);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             padding: 30px;
             color: var(--ivory);
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        
+        .cover-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            color: var(--gold);
+        }
+        
+        .cover-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin: 10px 0;
+            font-weight: 600;
         }
         
         .card-back {
@@ -98,22 +136,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-        
-        .card-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-        
-        .card-text {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            margin: 10px 0;
-            font-weight: 600;
         }
         
         .card-image {
@@ -141,6 +163,7 @@
             flex-direction: column;
             align-items: center;
             gap: 15px;
+            margin-bottom: 30px;
         }
         
         .draw-btn {
@@ -157,7 +180,6 @@
             letter-spacing: 1px;
             text-transform: uppercase;
             font-family: 'Playfair Display', serif;
-            margin-bottom: 30px;
             border: 2px solid rgba(230, 213, 184, 0.5);
         }
         
@@ -281,35 +303,25 @@
             border-top: none;
         }
         
-        /* Background particles */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            overflow: hidden;
-        }
-        
-        .particle {
-            position: absolute;
-            background: rgba(243, 156, 18, 0.1);
-            border-radius: 50%;
-            animation: float 15s infinite linear;
-        }
-        
         /* Responsive design */
         @media (max-width: 768px) {
-            .card-container {
-                height: 65vh;
+            .app-title {
+                font-size: 2.2rem;
             }
             
-            .card-title {
+            .app-subtitle {
+                font-size: 1rem;
+            }
+            
+            .card-container {
+                height: 450px;
+            }
+            
+            .cover-title {
                 font-size: 1.8rem;
             }
             
-            .card-text {
+            .cover-text {
                 font-size: 1.1rem;
             }
             
@@ -320,12 +332,15 @@
         }
         
         @media (max-width: 480px) {
-            .card-container {
-                height: 60vh;
-                max-height: 500px;
+            .app-title {
+                font-size: 1.9rem;
             }
             
-            .card-title {
+            .card-container {
+                height: 400px;
+            }
+            
+            .cover-title {
                 font-size: 1.6rem;
             }
             
@@ -340,9 +355,12 @@
     </style>
 </head>
 <body>
-    <div class="particles" id="particles"></div>
-    
     <div class="app-container">
+        <div class="app-header">
+            <div class="app-title">Soulful Selling</div>
+            <div class="app-subtitle">Authentic Connection Cards</div>
+        </div>
+        
         <div class="card-container">
             <div class="card floating" id="card">
                 <div class="card-face card-front">
@@ -351,18 +369,18 @@
                     <div class="corner-decoration corner-bl"></div>
                     <div class="corner-decoration corner-br"></div>
                     
-                    <div class="card-title">Soulful Selling</div>
-                    <div class="card-text">AUTHENTIC CONNECTION CARDS</div>
+                    <div class="cover-title">Soulful Selling Cards</div>
                     
-                    <div class="divider"></div>
+                    <div class="cover-text">HOLD SPACE FOR SILENCE</div>
+                    <div class="cover-text">BE THE CALM IN THEIR CHAOS</div>
+                    <div class="cover-text">FORWARD WITH CARE</div>
+                    <div class="cover-text">SELL WITH HEART</div>
                     
-                    <div class="card-text">Your Sacred Sales Card</div>
-                    <div class="card-text" style="font-style: italic; font-size: 1.1rem;">Tap to reveal your guidance</div>
-                    
-                    <div class="tap-hint">DRAW SACRED CARD</div>
+                    <div class="tap-hint">Tap card to reveal guidance</div>
                 </div>
                 <div class="card-face card-back" id="card-display">
                     <!-- Card back will be shown here -->
+                    <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Sacred Card" class="card-image">
                 </div>
             </div>
         </div>
@@ -387,7 +405,7 @@
     </div>
 
     <script>
-        // All your card filenames
+        // Sample card filenames (replace with your actual filenames)
         const cardImages = [
             "Ask Care.Tell.MeanIt.png",
             "ask.like.care.png",
@@ -472,61 +490,22 @@
         const card = document.getElementById('card');
         const cardDisplay = document.getElementById('card-display');
         const drawButton = document.getElementById('draw-btn');
-        const particlesContainer = document.getElementById('particles');
-        
-        // Create background particles
-        function createParticles() {
-            const particleCount = 30;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                
-                // Random size and position
-                const size = Math.random() * 20 + 5;
-                const posX = Math.random() * 100;
-                const posY = Math.random() * 100;
-                const delay = Math.random() * 15;
-                
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                particle.style.left = `${posX}%`;
-                particle.style.top = `${posY}%`;
-                particle.style.animationDelay = `${delay}s`;
-                
-                particlesContainer.appendChild(particle);
-            }
-        }
         
         // Draw a random card
         function drawCard() {
-            // Flip the card to show the back first
-            card.classList.remove('flipped');
+            // Flip the card to show the back
+            card.classList.add('flipped');
             
-            setTimeout(() => {
-                // Get random card
-                const randomIndex = Math.floor(Math.random() * cardImages.length);
-                const cardImage = cardImages[randomIndex];
-                
-                // Create image element
-                const img = document.createElement('img');
-                img.src = `images/${cardImage}`;
-                img.alt = cardImage.replace('.png', '');
-                img.className = 'card-image';
-                
-                // Update card display
-                cardDisplay.innerHTML = '';
-                cardDisplay.appendChild(img);
-                
-                // Add drawn animation
-                img.classList.add('card-drawn');
-                
-                // Flip to show the new card
-                setTimeout(() => {
-                    card.classList.add('flipped');
-                }, 300);
-                
-            }, 300);
+            // Get random card
+            const randomIndex = Math.floor(Math.random() * cardImages.length);
+            const cardImage = cardImages[randomIndex];
+            
+            // Update card display
+            cardDisplay.innerHTML = `<img src="images/${cardImage}" alt="Sacred Card" class="card-image">`;
+            
+            // Add animation to the new card
+            const img = cardDisplay.querySelector('img');
+            img.classList.add('card-drawn');
         }
         
         // Event Listeners
@@ -539,9 +518,8 @@
             }
         });
         
-        // Initialize
-        createParticles();
-        setTimeout(drawCard, 1000); // Draw first card after 1 second
+        // Draw the first card on page load
+        setTimeout(drawCard, 1000);
     </script>
 </body>
 </html>
